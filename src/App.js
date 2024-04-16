@@ -6,6 +6,8 @@ import Login from "./pages/Login";
 import Account from "./pages/Account";
 import Signup from "./pages/Signup";
 import ProtectedRoute from "./components/ProtectedRoute";
+import Discover from "./pages/Discover";
+import Overview from "./pages/Overview";
 
 
 
@@ -22,6 +24,9 @@ function App() {
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<Signup />} />
       <Route path="/account" element={<ProtectedRoute><Account /></ProtectedRoute>} />
+      <Route path="/discover" element={<ProtectedRoute><Discover /></ProtectedRoute>} />
+      <Route path="/overview/:id" element={<Overview />} />
+
 
     </Routes>
     
