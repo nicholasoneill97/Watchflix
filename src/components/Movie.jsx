@@ -56,7 +56,7 @@ import { Link } from 'react-router-dom'
                 
                         
                         <p onClick={saveMovie}>
-                            {like ? <FaHeart className='text-transparent md:text-gray-300 absolute top-4 left-4 ' /> : <FaRegHeart className='text-transparent sm:text-gray-300 absolute top-4 left-4 ' />}    
+                            {like ? <FaHeart className='text-gray-300 absolute top-4 left-4 ' /> : <FaRegHeart className='text-gray-300 absolute top-4 left-4 ' />}    
                         </p> 
                     </div>
                     
