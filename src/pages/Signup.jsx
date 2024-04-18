@@ -8,6 +8,9 @@ const Signup = () => {
     const {user, signUp} = UserAuth()
     const navigate = useNavigate()
 
+    //Handles the user data submitted to sign the user up
+    //Navigates the user back to the home page
+
     const handleSubmit = async (e) => {
         e.preventDefault()
         try {
@@ -27,16 +30,32 @@ const Signup = () => {
         <div className='fixed w-full px-4 py-24 z-50'>
             <div className='max-w-[450px] h-[600px] mx-auto bg-black/75 text-white'>
                 <div className='max-w-[320px] mx-auto py-16'>
-                    <h1 className='text-3xl font-bold'>Sign Up</h1>
+                    <h1 className='text-3xl font-bold'>
+                        Sign Up
+                    </h1>
                     <form onSubmit={handleSubmit} className='w-full flex flex-col py-4'>
                         <input onChange={(e) => setEmail(e.target.value)} className='p-3 my-2 bg-gray-700 rounded'  type='email' placeholder='Email' autoComplete='email'/>
                         <input onChange={(e) => setPassword(e.target.value)} className='p-3 my-2 bg-gray-700 rounded' type='password' placeholder='Password' autoComplete='current-password' />
-                        <button className='bg-cyan-600 py-3 my-6 rounded font-bold'>Sign Up</button>
+                        <button className='bg-cyan-600 py-3 my-6 rounded font-bold'>
+                            Sign Up
+                        </button>
                         <div className='flex justify-between items-center text-sm text-gray-500'>
-                            <p><input className='mr-2' type="checkbox" name="" id="" />Remember me</p>
-                            <p>Need Help?</p>
+                            <p>
+                                <input className='mr-2' type="checkbox" name="" id="" />
+                                Remember me
+                            </p>
+                            <p>
+                                Need Help?
+                            </p>
                         </div>
-                        <p className='py-8'><span className='text-gray-500'>Already subscribed to Watchflex?</span><Link to="/login" className='ml-6'>Sign In</Link></p>
+                        <p className='py-8'>
+                            <span className='text-gray-500'>
+                                Already subscribed to Watchflex?
+                            </span>
+                            <Link to="/login" className='ml-6'>
+                                Sign In
+                            </Link>
+                        </p>
                     </form>
                 </div>
             </div>

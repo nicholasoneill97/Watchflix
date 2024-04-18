@@ -15,6 +15,8 @@ const Card=(movie, item)=>{
 
     const movieID = doc(db, 'users', `${user?.email}`)
 
+    //Saves movie to their account when Heart Icon is clicked
+
      const saveMovie = async () => {
         if(user?.email) {
             setLike(!like)
@@ -39,13 +41,7 @@ const Card=(movie, item)=>{
 
 
 
-    const truncateString = (str, num) => {
-        if(str?.length > num) {
-          return str.slice(0, num) + '...'
-            } else {
-              return str
-            }
-      };
+    
     
    
     let img_path="https://image.tmdb.org/t/p/w500";
@@ -63,19 +59,21 @@ const Card=(movie, item)=>{
                     
                     <h4 className="text-white font-bold text-xl flex  cardtitle">
                         {movie.info.title}
-                    <p onClick={saveMovie}>
+                        <p onClick={saveMovie}>
                             {like ? <FaHeart className='text-gray-300 ml-2 mt-1' /> : <FaRegHeart className=' text-gray-300 hover:text-pink-500 ml-2  mt-1' />}   
                          
-                    </p>
+                        </p>
                     </h4>
                     
                     
-                        <h4 className="text-white mt-4 w-[100px] lg:w-[250px] text-xs lg:text-lg">Released {movie.info.release_date}</h4>
+                        <h4 className="text-white mt-4 w-[120px] lg:w-[250px] text-xs lg:text-lg">
+                            Released {movie.info.release_date}
+                        </h4>
                         
                         <Link className="relative" key={movie.id} to={`/overview/${movie.info.id}`}>
-                        <button className='text-white mt-4 px-2 py-1 border cursor-pointer w-[80px] lg:w-full bg-transparent backdrop-blur-sm font-bold hover:bg-cyan-600 hover:text-black hover:border-cyan-600 hover:font-extrabold transition duration-1000'>
-                        Learn More
-                        </button>
+                            <button className='text-white mt-4 px-2 py-1 border cursor-pointer w-[80px] lg:w-full bg-transparent backdrop-blur-sm font-bold hover:bg-cyan-600 hover:text-black hover:border-cyan-600 hover:font-extrabold transition duration-1000'>
+                                Learn More
+                            </button>
                         </Link>
                     </div>   
                     

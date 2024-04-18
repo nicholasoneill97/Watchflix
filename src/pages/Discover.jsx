@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Card from '../components/Card';
 import { FaSearch } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
 import '../card.css'
 
 
@@ -23,6 +22,9 @@ const Discover = () => {
             setData(data.results);
         });
     },[url_set])
+
+    //Checks which search button was pressed in array
+    //Returns the corresponding url for the data assigned to that button's value
 
     const getData=(movieType)=>{
         if(movieType=="Popular")
@@ -49,6 +51,9 @@ const Discover = () => {
         setUrl(url);
 
     }
+
+    //Takes the base url, attaches it to a movie search path that takes in the search query from the user
+
     const searchMovie=(evt)=>{
 
 
@@ -85,12 +90,14 @@ const Discover = () => {
                             })
                         }
                        
-                    </ul>
+                </ul>
                 <form>
                     <div className=" flex flex-row justify-center">
                       
+                    
+
                     <FaSearch className="text-white ml-2 cursor-0 mr-2"/>
-                        <input type="text" placeholder="Enter Movie Name"
+                        <input type="text" placeholder="Enter Movie"
                         className="rounded mb-4 lg:w-[600px] p-4 w-[50%] h-[20px] " onChange={(e)=>{setSearch(e.target.value)}} 
                         value={search} onKeyDown={searchMovie}>
                         </input>

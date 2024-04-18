@@ -15,6 +15,9 @@ import { Link } from 'react-router-dom'
 
     const movieID = doc(db, 'users', `${user?.email}`)
 
+
+    //Saves movie to their account once Heart Icon is clicked
+
      const saveMovie = async () => {
         if(user?.email) {
             setLike(!like)
@@ -37,12 +40,7 @@ import { Link } from 'react-router-dom'
 
 
     
-   // function   viewMovie() {
-   //      console.log("trying to view movie")
-         
-   //        const url = "https://www.themoviedb.org/movie/" + item.id + '?language=en-US'
-   //        window.location.href= url
-   //    }
+  
     
 
   return (

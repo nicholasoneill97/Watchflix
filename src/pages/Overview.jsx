@@ -24,6 +24,7 @@ const Overview = ({item, fetchURL}) => {
         getDetails: `https://api.themoviedb.org/3/movie/${id}?api_key=d50834595a9ac5c2fd35904d6b68625b&language=en-US`
     } 
     
+    //Grabs specific movie details from ID passed in
     useEffect(() => {
         axios.get(url.getDetails).then ((response) => {
             getMovie(response.data)
@@ -31,7 +32,7 @@ const Overview = ({item, fetchURL}) => {
     }, [])
 
     
-
+    //Saves movies to their account
 
     const saveMovie = async () => {
         if(user?.email) {
@@ -66,34 +67,34 @@ const Overview = ({item, fetchURL}) => {
             <div className='absolute w-full max-h-full top-[8%] lg:top-[20%] p-4 md:p-8 flex flex-row justify-evenly align-middle gap-6'>
                 <div className='flex lg:flex-row flex-col lg:gap-6 gap-2 justify-center h-full'>
                     <div className='flex flex-col justify-center gap-4 align-middle'>
-                    <img className="h-[400px] w-auto border relative xl:h-[350px]" src={`https://image.tmdb.org/t/p/original/${movie?.poster_path}`} alt={movie?.title} />
-                    <a href={`https://www.themoviedb.org/movie/${movie?.id}?language=en-US`} target='_blank'>
-                        <button className='text-white px-4 py-2 border cursor-pointer w-full bg-transparent backdrop-blur-sm font-bold hover:bg-cyan-600 hover:text-black hover:border-cyan-600 hover:font-extrabold transition duration-1000'>
-                        Learn More
-                        </button>
-                    </a>
+                        <img className="h-[400px] w-[300px] border border-slate-600 relative xl:h-[350px] mx-auto" src={`https://image.tmdb.org/t/p/original/${movie?.poster_path}`} alt={movie?.title} />
+                        <a href={`https://www.themoviedb.org/movie/${movie?.id}?language=en-US`} target='_blank'>
+                            <button className='text-white px-4 py-2 border cursor-pointer w-full bg-transparent backdrop-blur-sm font-bold hover:bg-cyan-600 hover:text-black hover:border-cyan-600 hover:font-extrabold transition duration-1000'>
+                                Learn More
+                            </button>
+                        </a>
                     </div>
                     <div className='mt-0 h-full lg:mt-8'>
                         <h1 className='text-3xl md:text-5xl font-bold pt-1 text-white flex flex-row'>
                             {movie?.title} 
                             <p onClick={saveMovie}>
-                            {like ? <FaHeart className=' text-gray-300 ml-4 mt-1' /> : <FaRegHeart className=' text-gray-300 hover:text-pink-500 ml-4 mt-1 z-10' />}   
-                         
+                                {like ? <FaHeart className=' text-gray-300 ml-4 mt-1' /> : <FaRegHeart className=' text-gray-300 hover:text-pink-500 ml-4 mt-1 z-10' />}   
                             </p>
                         </h1>
-                        <p className='text-white text-lg mt-2'>Released: {movie?.release_date}</p>
-                        <p className='text-white text-lg mt-1'>Rating: {parseInt(movie.vote_average * 10)}%</p>
-                        <h1 className=' text-3xl text-left text-white mt-4'>Overview</h1>
-                        <div className='text-left max-w-[400px] text-white mb-4'>{movie?.overview}</div>
-                        
+                        <p className='text-white text-lg mt-2'>
+                            Released: {movie?.release_date}
+                        </p>
+                        <p className='text-white text-lg mt-1'>
+                            Rating: {parseInt(movie.vote_average * 10)}%
+                        </p>
+                        <h1 className=' text-3xl text-left text-white mt-4'>
+                            Overview
+                        </h1>
+                        <div className='text-left max-w-[400px] text-white mb-4'>
+                            {movie?.overview}
+                        </div>
                     </div>
-                    
                 </div>  
-            
-                
-                    
-                   
-                
             </div>
            
         

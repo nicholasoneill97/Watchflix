@@ -4,6 +4,9 @@ import Main from '../components/Main'
 import Row from '../components/Row'
 import Footer from '../components/Footer'
 
+//Returns rows corresponding to their specific requests and titles
+
+
 const Home = () => {
   return (
     <>

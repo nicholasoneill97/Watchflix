@@ -10,29 +10,27 @@ import Discover from "./pages/Discover";
 import Overview from "./pages/Overview";
 
 
-
+//Routes on website with protected routes labeled as such
 
 
 function App() {
   return (
-    <>
+  <>
     <AuthContextProvider>
-    <Navbar />
-    <Routes>
 
-      <Route path="/" element={<Home />} />
-      <Route path="/login" element={<Login />} />
-      <Route path="/signup" element={<Signup />} />
-      <Route path="/account" element={<ProtectedRoute><Account /></ProtectedRoute>} />
-      <Route path="/discover" element={<ProtectedRoute><Discover /></ProtectedRoute>} />
-      <Route path="/overview/:id" element={<Overview />} />
+      <Navbar />
 
-
-    </Routes>
-    
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/account" element={<ProtectedRoute><Account /></ProtectedRoute>} />
+        <Route path="/discover" element={<ProtectedRoute><Discover /></ProtectedRoute>} />
+        <Route path="/overview/:id" element={<Overview />} />
+      </Routes>
+      
     </AuthContextProvider>
-    
-    </>
+  </>
   );
 }
 

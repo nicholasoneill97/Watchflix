@@ -1,3 +1,5 @@
+/*Grid specifications for discover page search results*/
+
 .card {
     display: grid;
       grid-column-gap: 2rem;
@@ -5,6 +7,8 @@
       grid-template-rows: repeat(100px, auto);
       
 }
+
+/*Setting up discover page search results and category buttons to be responsive*/
 
 @media screen and (min-width: 800px) {
     

@@ -9,6 +9,8 @@ const Navbar = () => {
   const navigate = useNavigate()
  
 
+  //Logs user out and returns them to home page
+
   const handleLogout = async () => {
     try {
       await logOut()
@@ -17,6 +19,8 @@ const Navbar = () => {
 
     }
   }
+
+  //Displays different navigation options depending if the user is logged in or not
 
   return (
     <div className='flex items-center justify-between p-4 z-[100] w-full absolute'>

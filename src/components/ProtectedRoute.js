@@ -7,6 +7,9 @@ const ProtectedRoute = ({children}) => {
 
     const {user} =UserAuth()
 
+    //Establishes that the user can't access this route unless they are a signed in authenticated user
+    //Navigates them to home page 
+
     if(!user) {
     return <Navigate to="/" />
     } else {
@@ -14,7 +17,7 @@ const ProtectedRoute = ({children}) => {
     }
 
   return (
-    <div>ProtectedRoute</div>
+    <></>
   )
 }
 

@@ -13,6 +13,9 @@ const AuthContext = createContext();
 export function AuthContextProvider({ children }) {
   const [user, setUser] = useState({});
 
+  //Takes in new user's passsword and email, sets a new doc
+  //Initializes their "Saved Shows" to start as an empty contiainer
+
   function signUp(email, password) {
     createUserWithEmailAndPassword(auth, email, password);
     setDoc(doc(db, 'users', email), {
@@ -20,13 +23,19 @@ export function AuthContextProvider({ children }) {
     })
   }
 
+  //Function that checks their email and password and grants access depending on validity
+
   function logIn(email, password) {
     return signInWithEmailAndPassword(auth, email, password);
   }
 
+  //Function that handles logging out
+
   function logOut() {
     return signOut(auth);
   }
+
+  //Function that handles unsubscribing to the service
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
