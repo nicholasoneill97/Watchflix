@@ -50,7 +50,7 @@ const Signup = () => {
                         </div>
                         <p className='py-8'>
                             <span className='text-gray-500'>
-                                Already subscribed to Watchflex?
+                                Already subscribed to Watchflix?
                             </span>
                             <Link to="/login" className='ml-6'>
                                 Sign In
