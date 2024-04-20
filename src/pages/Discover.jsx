@@ -75,11 +75,11 @@ const Discover = () => {
             <div className=" mx-auto text-center p-2">
                 
                
-                <ul className='flex flex-row justify-evenly align-baseline gap-1 text-center mx-auto mt-[200px] mb-4 border rounded w-[85%] cardfilter'>
+                <ul className='flex flex-row justify-evenly align-middle gap-1 text-center mx-auto mt-[200px] mb-4 border rounded w-[90%] lg:w-[85%] md:w-[80%] cardfilter'>
                         {
                             arr.map((value,pos)=>{
                                 return(
-                                  <a class='text-center w-[20%] border-r border-l hover:bg-cyan-600 hover:text-black duration-1000 text-white font-xs' 
+                                  <a class='text-center w-[20%] border-r border-l hover:bg-cyan-600 hover:font-bold duration-1000 text-white font-xs' 
                                   href="#" 
                                   key={pos} 
                                   name={value} 
@@ -98,7 +98,7 @@ const Discover = () => {
 
                     <FaSearch className="text-white ml-2 cursor-0 mr-2"/>
                         <input type="text" placeholder="Enter Movie"
-                        className="rounded mb-4 lg:w-[600px] p-4 w-[50%] h-[20px] " onChange={(e)=>{setSearch(e.target.value)}} 
+                        className="rounded mb-4 lg:w-[600px] md:w-[400px] p-4 w-[70%] h-[20px] " onChange={(e)=>{setSearch(e.target.value)}} 
                         value={search} onKeyDown={searchMovie}>
                         </input>
                        
@@ -106,7 +106,7 @@ const Discover = () => {
                     
                 </form>
             </div>
-            <div className="container">
+            <div className="container flex flex-wrap mx-auto">
                 {
                     (movieData.length==0)?<p className="text-white text-center mt-8">Not Found</p>: movieData.map((res,pos)=>{
                         return(

@@ -48,30 +48,27 @@ const Card=(movie, item)=>{
     return(
         <>
         
-            <div className="card justify-center gap-2 lg:gap-10 items-center border-solid border border-slate-800 w-full mx-auto mb-8 relative">
+            <div className="flex flex-row card justify-center gap-0 lg:gap-1 items-center border-solid border border-slate-600 lg:w-[400px] w-[175px] lg:h-auto h-[120px] mx-auto mb-8 relative rounded hover:shadow-lg hover:shadow-cyan-800">
                 <div>
-                
-                <img src={img_path+movie.info.poster_path} className="h-auto" ></img>
-                
-                
+                    <img src={img_path+movie.info.poster_path} className="h-[100px] w-[100px] lg:h-[220px]  lg:w-[220px] rounded" ></img>
                 </div>
-                    <div className="w-[100%]">
+                    <div className="w-[100%] lg:ml-4  ml-2">
                     
-                    <h4 className="text-white font-bold text-xl flex  cardtitle">
-                        {movie.info.title}
-                        <p onClick={saveMovie}>
-                            {like ? <FaHeart className='text-gray-300 ml-2 mt-1' /> : <FaRegHeart className=' text-gray-300 hover:text-pink-500 ml-2  mt-1' />}   
+                        <h4 className="text-white font-bold text-[10px] lg:text-lg flex cardtitle w-[80px] lg:w-[120px]">
+                            {movie.info.title}
+                            <p onClick={saveMovie}>
+                                {like ? <FaHeart className='text-gray-300 ml-1 mr-1  lg:mt-1 mt-2 absolute top-0 right-1' /> : <FaRegHeart className=' text-gray-300 hover:text-pink-500 ml-1 mr-1  lg:mt-1 mt-2 absolute top-0 right-1' />}   
                          
-                        </p>
-                    </h4>
+                            </p>
+                        </h4>
                     
                     
-                        <h4 className="text-white mt-4 w-[120px] lg:w-[250px] text-xs lg:text-lg">
+                        <h4 className="text-white mt-0 lg:mt-2 w-[120px] lg:w-[200px] text-[10px] lg:text-lg mb-6">
                             Released {movie.info.release_date}
                         </h4>
                         
-                        <Link className="relative" key={movie.id} to={`/overview/${movie.info.id}`}>
-                            <button className='text-white mt-4 px-2 py-1 border cursor-pointer w-[80px] lg:w-full bg-transparent backdrop-blur-sm font-bold hover:bg-cyan-600 hover:text-black hover:border-cyan-600 hover:font-extrabold transition duration-1000'>
+                        <Link className="" key={movie.id} to={`/overview/${movie.info.id}`}>
+                            <button className='text-white  px-2 py-1 border cursor-pointer w-[100px] lg:w-[120px] bg-transparent backdrop-blur-sm font-bold hover:bg-cyan-600 hover:text-black hover:border-cyan-600 hover:font-extrabold transition duration-1000 absolute lg:bottom-[10%] bottom-3 text-sm lg:text-md'>
                                 Learn More
                             </button>
                         </Link>
