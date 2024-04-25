@@ -1,6 +1,14 @@
+
+//import route and routes for initializing routes with specific paths 
 import { Route, Routes } from "react-router-dom";
+
+//import navbar to set it to always be at top of page no matter the route
 import Navbar from "./components/Navbar";
+
+//import AuthContextProvider for protected routes
 import { AuthContextProvider } from './context/Authcontext'
+
+//import all pages for routes
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Account from "./pages/Account";

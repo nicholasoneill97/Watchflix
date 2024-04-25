@@ -1,4 +1,6 @@
 import React from 'react'
+
+//import link for footer links
 import { Link } from 'react-router-dom'
 
 

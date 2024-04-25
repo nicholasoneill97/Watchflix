@@ -1,21 +1,40 @@
+
+//import useState for likes and saving movies
 import react, { useState } from "react";
+
+//import styles for search results
 import '../card.css'
+
+//import link for "learn more" button on each search result
 import { Link } from "react-router-dom";
+
+//import heart icons for users to like specific movies
 import { FaHeart, FaRegHeart } from "react-icons/fa";
+
+//import UserAuth to check if user is present in order to like movies
 import { UserAuth } from "../context/Authcontext";
+
+//import arrayUnion, doc, db, and updateDoc to save movie and movie details to user's account if movie is liked
 import { arrayUnion, doc, updateDoc } from "firebase/firestore";
 import { db } from "../firebase";
 
 
 const Card=(movie, item)=>{
 
+
+    //initializes if the movie is liked to false
     const [like, setLike] = useState(false)
+
+    //initializes if the movie is saved to false
     const [saved, setsaved] = useState(false)
+
+    //initializes userAuth to check for user
     const { user } = UserAuth()
 
+    //declares movieID destination for when heart it clicked
     const movieID = doc(db, 'users', `${user?.email}`)
 
-    //Saves movie to their account when Heart Icon is clicked
+    //Saves movie to their account when Heart Icon is clicked and unifies array filled with movies details
 
      const saveMovie = async () => {
         if(user?.email) {

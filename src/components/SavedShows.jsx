@@ -1,14 +1,29 @@
+
+//import useState for movies
+//import useEffect for grabbing saved shows' details for user's account
 import React, { useState, useEffect } from 'react'
+
+//import left and right icons for slider
 import { MdChevronLeft, MdChevronRight } from 'react-icons/md'
+
+//import X icon for user to delete saved shows of their choosing
 import { AiOutlineClose } from 'react-icons/ai'
+
+//import UserAuth
 import {UserAuth} from '../context/Authcontext'
+
+//import db
 import { db } from '../firebase'
+
+//import updateDoc, doc, onSnapshot for user's saved shows' details
 import { updateDoc, doc, onSnapshot } from 'firebase/firestore'
 
 const SavedShows = () => {
 
-
+    //initializes movies set to an empty array
     const[movies, setMovies] = useState([])
+
+    //UserAuth checks for user
     const {user} = UserAuth()
 
     //Functions that push the sliders left or right   

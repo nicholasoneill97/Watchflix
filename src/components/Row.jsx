@@ -1,10 +1,20 @@
+
+//import axios for url fetching
 import axios from 'axios'
+
+//import useEffect for getting data results
+//import useState for setting movies in their respective rows
 import React, { useEffect, useState } from 'react'
+
+//import Movie 
 import Movie from './Movie'
+
+//import right and left icons for each row
 import { MdChevronLeft, MdChevronRight } from 'react-icons/md'
 
 const Row = ({title, fetchURL, rowID}) => {
 
+    //initializes movies set to an empty array
     const [movies, setMovies] = useState([])
     
     //Data fetching for home page fullfillment

@@ -1,21 +1,38 @@
+
+//import useEffect for data fetching and useState for movie data, setting url, and search
 import React, { useEffect, useState } from 'react'
+
+//import each search results contents and structure
 import Card from '../components/Card';
+
+//import seach icon
 import { FaSearch } from 'react-icons/fa';
+
+//import how each search result will look
 import '../card.css'
 
 
+//urls to be used for searches and categories
 let API_key="&api_key=d50834595a9ac5c2fd35904d6b68625b";
 let base_url="https://api.themoviedb.org/3";
 let url=base_url+"/discover/movie?sort_by=popularity.desc"+API_key;
+
+//array with category titles
 let arr=["Popular","SciFi","Crime","Action","Horror"];
 
 const Discover = () => {
    
+
+    //initializes movieData as empty array
     const [movieData,setData]=useState([]);
+
+    //initializes url_set as url
     const [url_set,setUrl]=useState(url);
+
+    //initilizes search 
     const [search,setSearch]=useState();
     
-    
+    //useEffect fetches data from url_set then sets setData to data.results 
     
     useEffect(()=>{
         fetch(url_set).then(res=>res.json()).then(data=>{
@@ -68,7 +85,7 @@ const Discover = () => {
         }
     }
 
-
+    //maps array of each movie category button and gives them their specific keys, names, values, and onClick functions
 
     return(
         <>

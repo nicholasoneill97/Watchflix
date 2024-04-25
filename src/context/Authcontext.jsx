@@ -1,16 +1,33 @@
+
+//import createContext
+//import useContext
+//import useEffect
+//import useState for setting User
 import { createContext, useContext, useEffect, useState } from 'react';
+
+//import authorization and database
 import { auth, db } from '../firebase';
+
+//import createUserWithEmailAndPassword for users to be able to sign up with their email and password
+//import signInWithEmailAndPassword for users to be able to sign in with their email and password
+//signOut for users to be able to sign out
+//import onAuthStateChanged for updates about when user has logged in, signed up, or logged out
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   signOut,
   onAuthStateChanged,
 } from 'firebase/auth';
+//import setDoc and doc for user's data to get documented and saved
 import {setDoc,doc} from 'firebase/firestore'
+
+//initializes createContext
 
 const AuthContext = createContext();
 
 export function AuthContextProvider({ children }) {
+
+  //intitializes user set to empty container
   const [user, setUser] = useState({});
 
   //Takes in new user's passsword and email, sets a new doc
@@ -35,7 +52,7 @@ export function AuthContextProvider({ children }) {
     return signOut(auth);
   }
 
-  //Function that handles unsubscribing to the service
+  //Function that handles unsubscribing
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {

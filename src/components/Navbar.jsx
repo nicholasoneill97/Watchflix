@@ -1,11 +1,21 @@
 import React from 'react'
+
+//import Link and useNavigate for navbar links and navigation
 import { Link, useNavigate } from 'react-router-dom'
+
+//import animations for nav bar on page load and additional media queries
 import '../animation&nav.css'
+
+//import userauth to check for user
 import { UserAuth } from '../context/Authcontext'
 
 const Navbar = () => {
 
+
+  //initializes UserAuth for log out function
   const {user, logOut} = UserAuth()
+
+  //sets useNavigate to navigate variable
   const navigate = useNavigate()
  
 

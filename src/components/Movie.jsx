@@ -1,22 +1,40 @@
+
+// import useState for liking and saving movies
 import React, { useState } from 'react'
+
+//import heart icons for movie saving
 import { FaHeart, FaRegHeart } from 'react-icons/fa'
+
+//import UserAuth
 import { UserAuth } from '../context/Authcontext'
+
+//import database
 import { db } from '../firebase'
+
+//import arrayUnion, doc, and updateDoc to save movies liked to user's account
 import { arrayUnion, doc, updateDoc } from 'firebase/firestore'
+
+//import Link for each movie, when clicked brings them to overview page
 import { Link } from 'react-router-dom'
- const Movie = ({item}) => {
+ 
 
+    const Movie = ({item}) => {
 
-
-
+    //initializes if the movie is liked to false
     const [like, setLike] = useState(false)
+
+    //initializes if the movie is saved to false
     const [saved, setsaved] = useState(false)
+
+    //initialies UserAuth to check for a user
     const { user } = UserAuth()
 
+    
+    //declares movieID destination for when heart it clicked
     const movieID = doc(db, 'users', `${user?.email}`)
 
 
-    //Saves movie to their account once Heart Icon is clicked
+    //Saves movie to their account when Heart Icon is clicked and unifies array filled with movies details
 
      const saveMovie = async () => {
         if(user?.email) {
@@ -40,7 +58,7 @@ import { Link } from 'react-router-dom'
 
 
     
-  
+  //how each movie will be displayed inside of the row sliders on home page
     
 
   return (

@@ -1,10 +1,21 @@
+
+//import useEffect for grabbing movie details
+//import useState for movies
 import React, { useEffect, useState } from 'react'
+
+//import requests for specific data for movie rows
 import requests from '../Requests'
+
+//import axios to fetch url
 import axios from 'axios'
+
+//import link for "More info" button in hero
 import { Link } from 'react-router-dom'
 
 
 const Main = () => {
+
+    //initializes movies to an empty array
     const [movies, setMovies] = useState([])
     
     //Randomizes movie selection to be on home page

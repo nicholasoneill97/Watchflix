@@ -1,7 +1,15 @@
 import React from 'react'
+
+//import requests for movie rows' contents
 import requests from '../Requests'
+
+//import main movie for hero of home page
 import Main from '../components/Main'
+
+//import row for movie rows
 import Row from '../components/Row'
+
+//import footer
 import Footer from '../components/Footer'
 
 //Returns rows corresponding to their specific requests and titles

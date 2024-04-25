@@ -1,6 +1,8 @@
+//api key
+
 export const key = 'd50834595a9ac5c2fd35904d6b68625b'
 
-
+//requests that populate the home page's movie rows
 
 const requests = {
     requestPopular: `https://api.themoviedb.org/3/movie/popular?api_key=${key}&language=en-US&page=1`,

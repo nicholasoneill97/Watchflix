@@ -1,25 +1,50 @@
+
+//import axios for fetching movie details
 import axios from 'axios';
+
+//import useEffect for grabbing movie details
+//import useState for movie, like, and saving movies
 import React, { useEffect, useState } from 'react'
+
+//import heart icons for before it's clicked and after
 import { FaHeart, FaRegHeart } from 'react-icons/fa';
+
+//import UserAuth to make sure user is logged in to save movie
 import { UserAuth } from '../context/Authcontext'
+
+//import db to save movie details to their account once heart is clicked
 import { db } from '../firebase'
+
+//import arrayUnion, doc, and updateDoc for movie and movie details to be saved to account once heart is clicked
 import { arrayUnion, doc, updateDoc } from 'firebase/firestore'
-import { Link, useParams } from 'react-router-dom';
+
+//import useParams to catch ID for movie
+import { useParams } from 'react-router-dom';
 
 
 
-const Overview = ({item, fetchURL}) => {
+const Overview = () => {
 
+    //initializes movie to empty array
     const [movie, getMovie] = useState([])
+
+    //initializes if movie is liked to false
     const [like, setLike] = useState(false)
+
+    //initializes if movie is saved to false
     const [saved, setsaved] = useState(false)
+
+    //initializes UserAuth to check if there's a user present
     const { user } = UserAuth()
 
+    //declares movieID that will get set to user's account
     const movieID = doc(db, 'users', `${user?.email}`)
 
+    //sets useParams to id passed in
     const { id } = useParams();
     
 
+    //declares url that gets id passed in and returns movie details
     const url = {
         getDetails: `https://api.themoviedb.org/3/movie/${id}?api_key=d50834595a9ac5c2fd35904d6b68625b&language=en-US`
     } 
@@ -56,7 +81,7 @@ const Overview = ({item, fetchURL}) => {
     
       
 
-    
+    //how specific movie clicked will be displayed to user
 
   return (
     <>

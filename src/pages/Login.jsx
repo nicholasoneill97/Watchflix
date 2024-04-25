@@ -1,14 +1,30 @@
+
+//import useState for email, password, and error 
 import React, { useState } from 'react'
+
+//import link for navigation to sign up page
 import { Link, useNavigate } from 'react-router-dom'
+
+//import UserAuth to check users credentials 
 import { UserAuth } from '../context/Authcontext'
 
 
 const Login = () => {
 
+
+  //sets email to initially be empty string  
   const [email, setEmail] = useState('')
+
+  //sets password to initially be empty string 
   const [password, setPassword] = useState('')
+
+  //sets error to initially be empty string 
   const [error, setError] = useState('')
+
+  //initializes userAuth
   const {user, logIn} = UserAuth()
+
+  //initializes useNavigate set to navigate variable
   const navigate = useNavigate()
 
     //Checks user data submitted against what is saved in the database

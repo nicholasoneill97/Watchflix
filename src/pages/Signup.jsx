@@ -1,11 +1,27 @@
+
+//import useState for email and password
 import React, { useState } from 'react'
+
+//import link and useNavigate for navigation
 import { Link, useNavigate } from 'react-router-dom'
+
+//import UserAuth for sign up
 import { UserAuth } from '../context/Authcontext'
 
+
+
 const Signup = () => {
+
+    //initializes email to empty string
     const [email, setEmail] = useState('')
+
+    //initializes password to empty string
     const [password, setPassword] = useState('')
+
+    //initializes UserAuth 
     const {user, signUp} = UserAuth()
+
+    //declares variable navigate set to useNavigate
     const navigate = useNavigate()
 
     //Handles the user data submitted to sign the user up
