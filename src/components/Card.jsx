@@ -62,7 +62,7 @@ const Card=(movie, item)=>{
 
     
     
-   
+    //declares movie image path's base url and width to be rendered of image
     let img_path="https://image.tmdb.org/t/p/w500";
     return(
         <>
