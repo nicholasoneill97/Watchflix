@@ -69,7 +69,7 @@ const Card=(movie, item)=>{
         
             <div className="flex flex-row card justify-center gap-0 lg:gap-1 items-center border-solid border border-slate-600 lg:w-[400px] w-[175px] lg:h-auto h-[120px] mx-auto mb-8 relative rounded hover:shadow-lg hover:shadow-cyan-800">
                 <div>
-                    <img src={img_path+movie.info.poster_path} className="h-[100px] w-[100px] lg:h-[220px]  lg:w-[220px] rounded" ></img>
+                    <img src={img_path+movie.info.poster_path} alt={movie.info.title} className="h-[100px] w-[100px] lg:h-[220px]  lg:w-[220px] rounded" ></img>
                 </div>
                     <div className="w-[100%] lg:ml-4  ml-2">
                     
