@@ -24,7 +24,7 @@ const Login = () => {
   //initializes userAuth
   const {user, logIn} = UserAuth()
 
-  //initializes useNavigate set to navigate variable
+  //initializes useNavigate
   const navigate = useNavigate()
 
     //Checks user data submitted against what is saved in the database

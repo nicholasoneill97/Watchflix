@@ -1,6 +1,6 @@
 
 //import route and routes for initializing routes with specific paths 
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, Navigate } from "react-router-dom";
 
 //import navbar to set it to always be at top of page no matter the route
 import Navbar from "./components/Navbar";
@@ -35,6 +35,8 @@ function App() {
         <Route path="/account" element={<ProtectedRoute><Account /></ProtectedRoute>} />
         <Route path="/discover" element={<ProtectedRoute><Discover /></ProtectedRoute>} />
         <Route path="/overview/:id" element={<Overview />} />
+
+        <Route path="*" element={<Navigate to="/" />} />
       </Routes>
       
     </AuthContextProvider>
