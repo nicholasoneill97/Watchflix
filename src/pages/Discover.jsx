@@ -1,18 +1,20 @@
 
-//import useEffect for data fetching and useState for movie data, setting url, and search
+//import useEffect for data fetching 
+//import useState for movie data, setting url, and search
 import React, { useEffect, useState } from 'react'
 
-//import each search results contents and structure
+//import each search results' contents and structure
 import Card from '../components/Card';
 
-//import seach icon
+//import search icon
 import { FaSearch } from 'react-icons/fa';
 
 //import how each search result will look
-import '../card.css'
+import '../styles/card.css'
 
 
-//urls to be used for searches and categories
+
+//urls to be used for custom searches and category searches
 let API_key="&api_key=d50834595a9ac5c2fd35904d6b68625b";
 let base_url="https://api.themoviedb.org/3";
 let url=base_url+"/discover/movie?sort_by=popularity.desc"+API_key;
@@ -26,7 +28,7 @@ const Discover = () => {
     //initializes movieData as empty array
     const [movieData,setData]=useState([]);
 
-    //initializes url_set as url
+    //initializes url
     const [url_set,setUrl]=useState(url);
 
     //initilizes search 
@@ -76,10 +78,10 @@ const Discover = () => {
 
         
 
-        if(evt.key=="Enter")
+        if (evt.key=="Enter")
         {
             evt.preventDefault()
-            url=base_url+"/search/movie?api_key=db95773a7fb212ba790d71f6adac0e7e&query="+search;
+            url = base_url+"/search/movie?api_key=db95773a7fb212ba790d71f6adac0e7e&query="+search;
             setUrl(url);
             setSearch(" ");
         }
@@ -113,7 +115,7 @@ const Discover = () => {
                       
                     
 
-                    <FaSearch className="text-white ml-2 cursor-0 mr-2"/>
+                    <FaSearch className="text-white ml-2 cursor-0 mr-2 mt-2"/>
                         <input type="text" placeholder="Enter Movie"
                         className="rounded mb-4 lg:w-[600px] md:w-[400px] p-4 w-[70%] h-[20px] " onChange={(e)=>{setSearch(e.target.value)}} 
                         value={search} onKeyDown={searchMovie}>
@@ -134,6 +136,7 @@ const Discover = () => {
                     })
                 }
             </div>
+            
         </>
     )
 }

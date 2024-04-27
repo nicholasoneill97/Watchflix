@@ -13,6 +13,7 @@ import axios from 'axios'
 import { Link } from 'react-router-dom'
 
 
+
 const Main = () => {
 
     //initializes movies to an empty array

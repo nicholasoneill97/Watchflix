@@ -12,6 +12,7 @@ import Row from '../components/Row'
 //import footer
 import Footer from '../components/Footer'
 
+
 //Returns rows corresponding to their specific requests and titles
 
 
@@ -25,6 +26,7 @@ const Home = () => {
     <Row rowID='4' title="Top Rated" fetchURL={requests.requestTopRated} />
     <Row rowID='5' title="Comedy" fetchURL={requests.requestComedy} />
     <Footer />
+    
     </>
   )
 }

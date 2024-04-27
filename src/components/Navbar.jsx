@@ -3,11 +3,14 @@ import React from 'react'
 //import Link and useNavigate for navbar links and navigation
 import { Link, useNavigate } from 'react-router-dom'
 
-//import animations for nav bar on page load and additional media queries
-import '../animation&nav.css'
+//import additional media queries
+import '../styles/nav.css'
 
 //import userauth to check for user
 import { UserAuth } from '../context/Authcontext'
+
+//import motion for nav animation
+import { motion } from 'framer-motion'
 
 const Navbar = () => {
 
@@ -33,7 +36,11 @@ const Navbar = () => {
   //Displays different navigation options depending if the user is logged in or not
 
   return (
-    <div className='flex items-center justify-between p-4 z-[100] w-full absolute'>
+    <motion.div 
+      initial={{ opacity: 0, scale: 0.5 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 1 }}
+      className='flex items-center justify-between p-4 z-[100] w-full absolute'>
         <Link to="/">
           <h1 className=' text-cyan-600 text-4xl font-bold cursor-pointer origin-left  duration-300 scale-y-10 slidefromleft navbutton'>WATCHFLIX</h1>
         </Link>
@@ -45,12 +52,12 @@ const Navbar = () => {
             </button>
           </Link>
             
-            <button onClick={handleLogout} className='bg-cyan-600 px-6 py-2 text-white slidefromright rounded hover:bg-black hover:text-white hover:border-white border border-cyan-600 animation duration-700 navbutton mr-2'>
+            <button onClick={handleLogout} className='bg-cyan-600 px-6 py-2 text-white slidefromright2 rounded hover:bg-black hover:text-white hover:border-white border border-cyan-600 animation duration-700 navbutton mr-2'>
               Log Out
             </button>
             
           <Link to="/discover">
-            <button className='transparent px-4 py-2 text-white slidefromright rounded mr-2 hover:bg-white hover:text-black animation duration-700 navbutton navbuttonline border'>
+            <button className='transparent px-4 py-2 text-white slidefromright3 rounded mr-2 hover:bg-white hover:text-black animation duration-700 navbutton navbuttonline border'>
               Discover
             </button>
           </Link>
@@ -62,12 +69,12 @@ const Navbar = () => {
                         </button>
                       </Link>
                       <Link to="/signup">
-                        <button className='bg-cyan-600 px-6 py-2 text-white slidefromright rounded hover:bg-white hover:text-black animation duration-700 navbutton'>
+                        <button className='bg-cyan-600 px-6 py-2 text-white slidefromright2 rounded hover:bg-white hover:text-black animation duration-700 navbutton'>
                           Sign Up
                         </button>
                       </Link>
                   </div>)}
-    </div>
+    </motion.div>
   )
 }
 

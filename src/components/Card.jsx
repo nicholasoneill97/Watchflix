@@ -3,7 +3,7 @@
 import react, { useState } from "react";
 
 //import styles for search results
-import '../card.css'
+import '../styles/card.css'
 
 //import link for "learn more" button on each search result
 import { Link } from "react-router-dom";
@@ -17,6 +17,8 @@ import { UserAuth } from "../context/Authcontext";
 //import arrayUnion, doc, db, and updateDoc to save movie and movie details to user's account if movie is liked
 import { arrayUnion, doc, updateDoc } from "firebase/firestore";
 import { db } from "../firebase";
+
+import { motion } from "framer-motion";
 
 
 const Card=(movie, item)=>{
@@ -67,7 +69,11 @@ const Card=(movie, item)=>{
     return(
         <>
         
-            <div className="flex flex-row card justify-center gap-0 lg:gap-1 items-center border-solid border border-slate-600 lg:w-[400px] w-[175px] lg:h-auto h-[120px] mx-auto mb-8 relative rounded hover:shadow-lg hover:shadow-cyan-800">
+            <motion.div 
+                className="flex flex-row card justify-center gap-0 lg:gap-1 items-center border-solid border border-slate-600 lg:w-[400px] w-[175px] lg:h-auto h-[120px] mx-auto mb-8 relative rounded hover:shadow-lg hover:shadow-cyan-800"
+                initial={{ opacity: 0, scale: 0.5 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 1 }}>
                 <div>
                     <img src={img_path+movie.info.poster_path} alt={movie.info.title} className="h-[100px] w-[100px] lg:h-[220px]  lg:w-[220px] rounded" ></img>
                 </div>
@@ -95,7 +101,7 @@ const Card=(movie, item)=>{
                     
                 
                 
-                </div> 
+            </motion.div> 
         
             
         </>
