@@ -31,7 +31,7 @@ export function AuthContextProvider({ children }) {
   const [user, setUser] = useState({});
 
   //Takes in new user's passsword and email, sets a new doc
-  //Initializes their "Saved Shows" to start as an empty contiainer
+  //Initializes their "Saved Shows" to start as an empty array
 
   function signUp(email, password) {
     createUserWithEmailAndPassword(auth, email, password);
