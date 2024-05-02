@@ -71,12 +71,10 @@ const Discover = () => {
 
     }
 
-    //Takes the base url, attaches it to a movie search path that takes in the search query from the user
+    //Takes the base url, attaches it to a movie search path that takes in the search query from the user when user hits enter key
+
 
     const searchMovie=(evt)=>{
-
-
-        
 
         if (evt.key=="Enter")
         {
@@ -115,9 +113,9 @@ const Discover = () => {
                       
                     
 
-                    <FaSearch className="text-white ml-2 cursor-0 mr-2 mt-2"/>
+                    <FaSearch className="text-white ml-2 cursor-0 mr-2 mt-12"/>
                         <input type="text" placeholder="Enter Movie"
-                        className="rounded mb-4 lg:w-[600px] md:w-[400px] p-4 w-[70%] h-[20px] " onChange={(e)=>{setSearch(e.target.value)}} 
+                        className="rounded mt-10 mb-20 lg:w-[600px] md:w-[400px] p-4 w-[70%] h-[20px] " onChange={(e)=>{setSearch(e.target.value)}} 
                         value={search} onKeyDown={searchMovie}>
                         </input>
                        

@@ -27,10 +27,10 @@ const AuthContext = createContext();
 
 export function AuthContextProvider({ children }) {
 
-  //intitializes user set to empty container
+  //initializes user set to empty container
   const [user, setUser] = useState({});
 
-  //Takes in new user's passsword and email, sets a new doc
+  //Takes in new user's password and email, sets a new doc
   //Initializes their "Saved Shows" to start as an empty array
 
   function signUp(email, password) {
