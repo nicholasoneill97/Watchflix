@@ -73,8 +73,9 @@ const Overview = () => {
                 savedShows: arrayUnion (
                     {id: movie.id,
                      title: movie.title,
-                     img: movie.backdrop_path,
-                     details: movie.overview,
+                     img: movie.backdrop_path
+                     
+                     
                      
 
                      
@@ -98,13 +99,13 @@ const Overview = () => {
             <div className='absolute w-full max-h-full top-[8%] lg:top-[20%] p-4 md:p-8 flex flex-row justify-evenly align-middle gap-6'>
                 <motion.div 
                     className='flex lg:flex-row flex-col lg:gap-6 gap-2 justify-center h-full'
-                    initial={{ opacity: 0, scale: 0.5 }}
+                    initial={{ opacity: 0, scale: 1 }}
                     animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 1 }}>
+                    transition={{ duration: 2 }}>
                     <div className='flex flex-col justify-center gap-4 align-middle'>
                         <img className="h-[400px] w-[300px] border border-slate-600 relative xl:h-[350px] xl:w-[250px] mx-auto" src={`https://image.tmdb.org/t/p/original/${movie?.poster_path}`} alt={movie?.title} />
                         <a href={`https://www.themoviedb.org/movie/${movie?.id}?language=en-US`} target='_blank'>
-                            <button className='text-white px-4 py-2 border cursor-pointer w-full bg-transparent backdrop-blur-sm font-bold hover:bg-slate-500  hover:border-black transition duration-1000'>
+                            <button className='text-white px-4 py-2 border rounded cursor-pointer w-full bg-transparent backdrop-blur-sm font-bold hover:bg-slate-500  hover:border-black transition duration-1000'>
                                 Learn More
                             </button>
                         </a>
@@ -120,7 +121,7 @@ const Overview = () => {
                             Released: {movie?.release_date}
                         </p>
                         <p className='text-white text-lg mt-1'>
-                            Rating: {parseInt(movie.vote_average * 10)}%
+                            Rotten Potatoes: {parseInt(movie.vote_average * 10)}%
                         </p>
                         <h1 className=' text-3xl text-left text-white mt-4'>
                             Overview

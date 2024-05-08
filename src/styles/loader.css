@@ -1,7 +1,7 @@
 /*loader class specifies width, height, and animation duration and style*/
 
 .loader {
-    animation: loader 2s ease-in-out forwards;
+    animation: loader 1s ease-in-out forwards;
     width: 100%;
     height: 100%;
     position: absolute;
@@ -9,14 +9,14 @@
     z-index: 100;
 }
 
-/*loader animation specifies that the element will stay but disappear from view at 80%, then actually leave at 100%*/
+/*loader animation specifies that the element will stay but disappear from view at 99%, then actually leave at 100%*/
 
 @keyframes loader {
     0% {
         scale: 1;
         opacity: 1;
     }
-    80% {
+    99% {
         scale: 1;
         opacity: 0;
     }

@@ -56,7 +56,7 @@ const Signup = () => {
                     <form onSubmit={handleSubmit} className='w-full flex flex-col py-4'>
                         <input onChange={(e) => setEmail(e.target.value)} className='p-3 my-2 bg-gray-700 rounded'  type='email' placeholder='Email' autoComplete='email'/>
                         <input onChange={(e) => setPassword(e.target.value)} className='p-3 my-2 bg-gray-700 rounded' type='password' placeholder='Password' autoComplete='current-password' />
-                        <button className='bg-cyan-600 py-3 my-6 rounded font-bold'>
+                        <button className='bg-cyan-600 py-3 my-6 rounded font-bold border border-cyan-600 hover:border-white hover:bg-transparent duration-500'>
                             Sign Up
                         </button>
                         <div className='flex justify-between items-center text-sm text-gray-500'>
@@ -72,7 +72,7 @@ const Signup = () => {
                             <span className='text-gray-500'>
                                 Already subscribed to Watchflix?
                             </span>
-                            <Link to="/login" className='ml-6'>
+                            <Link to="/login" className='ml-6 hover:text-slate-400 duration-500'>
                                 Sign In
                             </Link>
                         </p>

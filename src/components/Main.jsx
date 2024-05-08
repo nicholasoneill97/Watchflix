@@ -12,6 +12,9 @@ import axios from 'axios'
 //import link for "More info" button in hero
 import { Link } from 'react-router-dom'
 
+//import star for rating
+import { FaStar } from 'react-icons/fa'
+
 
 
 const Main = () => {
@@ -67,6 +70,12 @@ const Main = () => {
           <p className='w-full md:max-w-[70%] lg:max-w-[50%] xl:max-w-[35%] text-gray-200'>
             {truncateString(movie?.overview, 150)}
           </p>
+          <div className='flex mt-2'>
+            <FaStar className='mr-1 mt-[5px] text-lg'/>
+            <div className='text-lg'>
+              {movie?.vote_average.toFixed(0) / 2 }/5
+            </div>
+          </div>
         </div>
         
         

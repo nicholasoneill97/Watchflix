@@ -15,6 +15,8 @@ import '../styles/card.css'
 //import loader for animation on page load
 import Loader from '../components/Loader';
 
+//import motion for page load animation
+import { motion } from 'framer-motion';
 
 
 //urls to be used for custom searches and category searches
@@ -93,9 +95,11 @@ const Discover = () => {
     return(
         <>
             <Loader />
-            <div className=" mx-auto text-center p-2">
-                
-               
+            <motion.div 
+                 initial={{ opacity: 0 }}
+                 animate={{ opacity: 1 }}
+                transition={{ duration: 3 }}
+                className=" mx-auto text-center p-2">
                 <ul className='flex flex-row justify-evenly align-middle gap-1 text-center mx-auto mt-[200px] mb-4 border rounded w-[90%] lg:w-[85%] md:w-[80%] cardfilter'>
                         {
                             arr.map((value,pos)=>{
@@ -126,7 +130,7 @@ const Discover = () => {
                     </div>
                     
                 </form>
-            </div>
+            </motion.div>
             <div className="container flex flex-wrap mx-auto">
                 {
                     (movieData.length==0)?<p className="text-white text-center mt-8">Not Found</p>: movieData.map((res,pos)=>{

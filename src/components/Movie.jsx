@@ -5,6 +5,9 @@ import React, { useState } from 'react'
 //import heart icons for movie saving
 import { FaHeart, FaRegHeart } from 'react-icons/fa'
 
+//import star icon to show rating
+import { FaStar } from "react-icons/fa";
+
 //import UserAuth
 import { UserAuth } from '../context/Authcontext'
 
@@ -45,7 +48,7 @@ import { Link } from 'react-router-dom'
                     {id: item.id,
                      title: item.title,
                      img: item.backdrop_path,
-                     details: item.overview,
+                     
                      
 
                      
@@ -56,19 +59,30 @@ import { Link } from 'react-router-dom'
         }
     }
 
+   
 
     
   //how each movie will be displayed inside of the row sliders on home page
-    
+
 
   return (
     <div className='w-[160px] sm:w-[200px] md:w-[240px] lg:w-[280px] inline-block cursor-pointer relative p-2'>
                   <img className='w-full h-auto block' src={`https://image.tmdb.org/t/p/w500/${item?.backdrop_path}`} alt={item?.title} />
                     <div className='absolute top-0 left-0 w-full h-full hover:bg-black/80 opacity-0 hover:opacity-100 text-white'>
                     <Link key={item} item={item} to={`/overview/${item.id}`}>
-                        <p  className='white-space-normal text-xs md:text-sm font-bold flex justify-center items-center h-full text-center'>
-                            {item?.title}
-                        </p>
+                        <div  className='text-[.6rem] md:text-[1rem] font-bold flex flex-col justify-center items-center h-full text-center md:mt-0 mt-2'>
+                            {item?.title} 
+                            <div className='flex mt-2'>
+                                <FaStar className='mr-1 mt-[1px] md:mt-0'/>
+                                <div>
+                                    {item?.vote_average.toFixed(0) / 2 }/5
+                                </div>
+                            </div>
+
+                            
+                    
+                        </div>
+
                     </Link>
                     
                 
