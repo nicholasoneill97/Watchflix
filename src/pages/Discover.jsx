@@ -12,6 +12,9 @@ import { FaSearch } from 'react-icons/fa';
 //import how each search result will look
 import '../styles/card.css'
 
+//import loader for animation on page load
+import Loader from '../components/Loader';
+
 
 
 //urls to be used for custom searches and category searches
@@ -89,6 +92,7 @@ const Discover = () => {
 
     return(
         <>
+            <Loader />
             <div className=" mx-auto text-center p-2">
                 
                
@@ -96,7 +100,7 @@ const Discover = () => {
                         {
                             arr.map((value,pos)=>{
                                 return(
-                                  <a class='text-center w-[20%] border-r border-l hover:bg-cyan-600 hover:font-bold duration-1000 text-white font-xs' 
+                                  <a className='text-center w-[20%] border-r border-l hover:bg-cyan-600 hover:font-bold duration-1000 text-white font-xs' 
                                   href="#" 
                                   key={pos} 
                                   name={value} 

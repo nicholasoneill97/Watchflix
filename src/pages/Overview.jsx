@@ -24,6 +24,9 @@ import { useParams } from 'react-router-dom';
 //import motion for animation
 import { motion } from 'framer-motion';
 
+//import loader for animation on page load
+import Loader from '../components/Loader';
+
 
 
 const Overview = () => {
@@ -88,7 +91,7 @@ const Overview = () => {
 
   return (
     <>
-    
+            <Loader />
         
             <div className='absolute w-full h-[550px]  bg-gradient-to-b from-black via-transparent to-black '></div>
             <img className="w-full h-full object-cover brightness-[25%] hidden lg:flex" src={`https://image.tmdb.org/t/p/original/${movie?.backdrop_path}`} alt={movie?.title} />
@@ -101,7 +104,7 @@ const Overview = () => {
                     <div className='flex flex-col justify-center gap-4 align-middle'>
                         <img className="h-[400px] w-[300px] border border-slate-600 relative xl:h-[350px] xl:w-[250px] mx-auto" src={`https://image.tmdb.org/t/p/original/${movie?.poster_path}`} alt={movie?.title} />
                         <a href={`https://www.themoviedb.org/movie/${movie?.id}?language=en-US`} target='_blank'>
-                            <button className='text-white px-4 py-2 border cursor-pointer w-full bg-transparent backdrop-blur-sm font-bold hover:bg-cyan-600 hover:text-black hover:border-cyan-600 hover:font-extrabold transition duration-1000'>
+                            <button className='text-white px-4 py-2 border cursor-pointer w-full bg-transparent backdrop-blur-sm font-bold hover:bg-slate-500  hover:border-black transition duration-1000'>
                                 Learn More
                             </button>
                         </a>

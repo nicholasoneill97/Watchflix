@@ -93,7 +93,7 @@ const Card=(movie, item)=>{
                         </h4>
                         
                         <Link className="" key={movie.id} to={`/overview/${movie.info.id}`}>
-                            <button className='text-white  px-2 py-1 border cursor-pointer w-[100px] lg:w-[120px] bg-transparent backdrop-blur-sm font-bold hover:bg-cyan-600 hover:text-black hover:border-cyan-600 hover:font-extrabold transition duration-1000 absolute lg:bottom-[10%] bottom-3 text-sm lg:text-md'>
+                            <button className='text-white  px-2 py-1 border cursor-pointer w-[100px] lg:w-[120px] bg-transparent backdrop-blur-sm font-bold hover:bg-slate-500  hover:border-black transition duration-1000 absolute lg:bottom-[10%] bottom-3 text-sm lg:text-md'>
                                 Learn More
                             </button>
                         </Link>

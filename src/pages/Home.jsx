@@ -12,6 +12,9 @@ import Row from '../components/Row'
 //import footer
 import Footer from '../components/Footer'
 
+//import loader for animation on page load
+import Loader from '../components/Loader'
+
 
 //Returns rows corresponding to their specific requests and titles
 
@@ -19,6 +22,7 @@ import Footer from '../components/Footer'
 const Home = () => {
   return (
     <>
+    <Loader />
     <Main />
     <Row rowID='1' title="Upcoming" fetchURL={requests.requestUpcoming} />
     <Row rowID='2' title="Popular" fetchURL={requests.requestPopular} />

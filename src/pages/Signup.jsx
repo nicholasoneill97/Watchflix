@@ -8,6 +8,9 @@ import { Link, useNavigate } from 'react-router-dom'
 //import UserAuth for sign up
 import { UserAuth } from '../context/Authcontext'
 
+//import loader for animation on page load
+import Loader from '../components/Loader'
+
 
 
 const Signup = () => {
@@ -40,6 +43,7 @@ const Signup = () => {
 
   return (
     <>
+    <Loader />
     <div className='w-full h-screen'>
         <img className='hidden sm:block absolute w-full h-full object-cover' src ="https://www.okynemedialab.com/wp-content/uploads/2019/11/netflix-background-50-Black-1024x576.jpg" alt="/"  />
         <div className='bg-black/60 fixed top-0 left-0 w-full h-screen'></div>
