@@ -95,13 +95,13 @@ const Overview = () => {
             <Loader />
         
             <div className='absolute w-full h-[550px]  bg-gradient-to-b from-black via-transparent to-black '></div>
-            <img className="w-full h-full object-cover brightness-[25%] hidden lg:flex" src={`https://image.tmdb.org/t/p/original/${movie?.backdrop_path}`} alt={movie?.title} />
+            <img className="w-full h-full object-cover brightness-[15%] hidden lg:flex" src={`https://image.tmdb.org/t/p/original/${movie?.backdrop_path}`} alt={movie?.title} />
             <div className='absolute w-full max-h-full top-[8%] lg:top-[20%] p-4 md:p-8 flex flex-row justify-evenly align-middle gap-6'>
                 <motion.div 
                     className='flex lg:flex-row flex-col lg:gap-6 gap-2 justify-center h-full'
                     initial={{ opacity: 0, scale: 1 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 2 }}>
+                    animate={{ opacity: 1, scale: 1, }}
+                    transition={{ duration: 2, delay: 1 }}>
                     <div className='flex flex-col justify-center gap-4 align-middle'>
                         <img className="h-[400px] w-[300px] border border-slate-600 relative xl:h-[350px] xl:w-[250px] mx-auto" src={`https://image.tmdb.org/t/p/original/${movie?.poster_path}`} alt={movie?.title} />
                         <a href={`https://www.themoviedb.org/movie/${movie?.id}?language=en-US`} target='_blank'>

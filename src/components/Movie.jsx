@@ -27,7 +27,7 @@ import { Link } from 'react-router-dom'
     const [like, setLike] = useState(false)
 
     //initializes if the movie is saved to false
-    const [saved, setsaved] = useState(false)
+    const [saved, setSaved] = useState(false)
 
     //initialies UserAuth to check for a user
     const { user } = UserAuth()
@@ -42,7 +42,7 @@ import { Link } from 'react-router-dom'
      const saveMovie = async () => {
         if(user?.email) {
             setLike(!like)
-            setsaved(true)
+            setSaved(true)
             await updateDoc(movieID, {
                 savedShows: arrayUnion (
                     {id: item.id,
@@ -88,7 +88,7 @@ import { Link } from 'react-router-dom'
                 
                         
                         <p onClick={saveMovie}>
-                            {like ? <FaHeart className='text-gray-300 absolute top-4 left-4 ' /> : <FaRegHeart className='text-gray-300 absolute top-4 left-4 ' />}    
+                            {like ? <FaHeart className='text-gray-300 absolute top-4 left-4 ' /> : <FaRegHeart className='text-gray-300 absolute top-4 left-4 hover:text-pink-400 ' />}    
                         </p> 
                     </div>
                     

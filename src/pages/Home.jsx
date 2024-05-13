@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
 //import requests for movie rows' contents
 import requests from '../Requests'
@@ -19,7 +19,11 @@ import Loader from '../components/Loader'
 //Returns rows corresponding to their specific requests and titles
 
 
+
 const Home = () => {
+
+
+
   return (
     <>
     <Loader />

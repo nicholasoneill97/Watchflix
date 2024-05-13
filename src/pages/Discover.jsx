@@ -98,7 +98,7 @@ const Discover = () => {
             <motion.div 
                  initial={{ opacity: 0 }}
                  animate={{ opacity: 1 }}
-                transition={{ duration: 3 }}
+                transition={{ duration: 3, delay: 1 }}
                 className=" mx-auto text-center p-2">
                 <ul className='flex flex-row justify-evenly align-middle gap-1 text-center mx-auto mt-[200px] mb-4 border rounded w-[90%] lg:w-[85%] md:w-[80%] cardfilter'>
                         {

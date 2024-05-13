@@ -37,9 +37,9 @@ const Navbar = () => {
 
   return (
     <motion.div 
-      initial={{ opacity: 0, scale: 0.5 }}
+      initial={{ opacity: 0, scale: 1 }}
       animate={{ opacity: 1, scale: 1 }}
-      transition={{ duration: 1 }}
+      transition={{ duration: 1, delay: 1.4 }}
       className='flex items-center justify-between p-4 z-[100] w-full absolute'>
         <Link to="/">
           <h1 className=' text-cyan-600 text-4xl font-bold cursor-pointer origin-left  duration-300 scale-y-10 slidefromleft navbutton'>WATCHFLIX</h1>

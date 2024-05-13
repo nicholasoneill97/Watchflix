@@ -79,7 +79,7 @@ const Card=(movie, item)=>{
                 className="flex flex-row card justify-center gap-0 lg:gap-1 items-center border border-l-0 border-solid border-slate-600 lg:w-[400px] w-[220px] lg:h-auto h-[120px] mx-auto mb-8 relative rounded hover:shadow-lg hover:shadow-cyan-800"
                 initial={{ opacity: 0, scale: 1 }}
                 animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 3 }}>
+                transition={{ duration: 3, delay: 1.3 }}>
                 <div>
                     <img src={img_path+movie.info.poster_path} alt={movie.info.title} className="h-[120px] w-[130px] lg:h-[220px]  lg:w-[220px] rounded" ></img>
                 </div>
