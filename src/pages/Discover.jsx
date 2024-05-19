@@ -104,7 +104,7 @@ const Discover = () => {
                         {
                             arr.map((value,pos)=>{
                                 return(
-                                  <a className='text-center w-[20%] border-r border-l hover:bg-cyan-600 hover:font-bold duration-1000 text-white font-xs' 
+                                  <a className='text-center w-[20%] border-r border-l hover:bg-slate-600 duration-1000 text-white font-xs' 
                                   href="#" 
                                   key={pos} 
                                   name={value} 

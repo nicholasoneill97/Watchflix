@@ -22,7 +22,7 @@ import { db } from "../firebase";
 import { motion } from "framer-motion";
 
 //import coming soon image in case image can't be loaded in for movie
-import  coming_soon  from '../images/image_coming_soon.png'
+import  emptyImage  from '../images/overview_image_coming_soon.png'
 
 
 const Card=(movie, item)=>{
@@ -76,12 +76,12 @@ const Card=(movie, item)=>{
         <>
         
             <motion.div 
-                className="flex flex-row card justify-center gap-0 lg:gap-1 items-center border border-l-0 border-solid border-slate-600 lg:w-[400px] w-[220px] lg:h-auto h-[120px] mx-auto mb-8 relative rounded hover:shadow-lg hover:shadow-cyan-800"
+                className="card flex flex-row card justify-center gap-0 lg:gap-1 items-center border border-l-0 border-solid border-slate-600 hover:border-white duration-500 lg:w-[400px] w-[220px] lg:h-auto h-[120px] mx-auto mb-8 relative rounded hover:shadow-md hover:shadow-cyan-900"
                 initial={{ opacity: 0, scale: 1 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 3, delay: 1.3 }}>
                 <div>
-                    <img src={img_path+movie.info.poster_path} alt={movie.info.title} className="h-[120px] w-[130px] lg:h-[220px]  lg:w-[220px] rounded" ></img>
+                    <img src={movie.info.poster_path === null ? emptyImage : img_path+movie.info.poster_path} alt={movie.info.title} className="h-[120px] w-[130px] lg:h-[220px]  lg:w-[220px] rounded" ></img>
                 </div>
                     <div className="w-[100%] lg:ml-4  ml-2">
                     

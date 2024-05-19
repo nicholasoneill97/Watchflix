@@ -42,7 +42,7 @@ const Navbar = () => {
       transition={{ duration: 1, delay: 1.4 }}
       className='flex items-center justify-between p-4 z-[100] w-full absolute'>
         <Link to="/">
-          <h1 className=' text-cyan-600 text-4xl font-bold cursor-pointer origin-left  duration-300 scale-y-10 slidefromleft navbutton'>WATCHFLIX</h1>
+          <h1 className=' text-cyan-600 text-4xl font-bold cursor-pointer origin-left hover:text-cyan-800  duration-300 scale-y-10 slidefromleft navbutton'>WATCHFLIX</h1>
         </Link>
         
         {user?.email ?  (<div>
@@ -52,7 +52,7 @@ const Navbar = () => {
             </button>
           </Link>
             
-            <button onClick={handleLogout} className='bg-cyan-600 px-6 py-2 text-white slidefromright2 rounded hover:bg-black hover:text-white hover:border-white border border-cyan-600 animation duration-700 navbutton mr-2'>
+            <button onClick={handleLogout} className='bg-cyan-600 px-6 py-2 text-white slidefromright2 rounded hover:bg-cyan-900 hover:text-white hover:border-white border border-cyan-600 animation duration-700 navbutton mr-2'>
               Log Out
             </button>
             
@@ -69,7 +69,7 @@ const Navbar = () => {
                         </button>
                       </Link>
                       <Link to="/signup">
-                        <button className='bg-cyan-600 px-6 py-2 text-white slidefromright2 rounded hover:bg-white hover:text-black animation duration-700 navbutton'>
+                        <button className='bg-cyan-600 px-6 py-2 text-white slidefromright2 rounded hover:bg-cyan-900 hover:text-white border border-transparent hover:border-white animation duration-700 navbutton'>
                           Sign Up
                         </button>
                       </Link>

@@ -1,0 +1,154 @@
+/*phone responsiveness*/
+
+@media screen and (max-height: 700px) and (max-width: 400px) {
+    .overview {
+        height: 400px;
+        top: 300px;
+    }
+    .movie-info {
+        margin-top: 0;  
+    }
+    .movie-title {
+        margin-top: 0;   
+    }
+    .empty-poster {
+        top:200px
+    }
+}
+
+
+
+
+/*specific laptop/tablet responsiveness*/
+
+@media screen and (max-height: 700px) and (max-width: 1030px) {
+    .overview {
+        height: 400px;
+        
+    }
+    .movie-info {
+        margin-top: 0;
+          
+        
+    }
+    .movie-title {
+        margin-top: 0;   
+    }
+}
+
+/*sideways phone views responsiveness*/
+
+@media screen and (max-height: 550px) {
+    .overview {
+        height: 400px;
+        margin-top: 0px;
+    }
+    .movie-info {
+        margin-top: 20px;
+        margin-left: 20px;
+    }
+    .movie-title {
+        margin-top: 0;  
+        font-size: 20px; 
+    }
+
+    .poster {
+        width: 160px;
+        height: auto;
+    }
+    .container {
+        flex-direction: row;
+    }
+    .overview-text {
+        font-size: 10px;
+    }
+}
+@media screen and (max-height: 370px) and (min-width: 800px) {
+    .overview {
+        height: 400px;
+        margin-top: 5px;
+        
+    }
+    .movie-info {
+        margin-top: 10px;
+        margin-left: 20px;
+        
+    }
+
+    .poster {
+        width: 150px;
+        height: auto;
+        margin-bottom: 0px;
+    }
+    .container {
+        flex-direction: row;
+    }
+    .learn-button {
+        margin-top: 0px;
+    }
+    .image-container {
+        gap: 0
+    }
+    
+}
+
+/*specific ipad responsiveness*/
+
+@media screen and (max-width: 920px) and (min-height: 1000px) {
+    .overview {
+        height: 400px;
+        margin-top: 100px;
+        
+    }
+    .movie-info {
+        
+        margin-left: 20px;
+        
+    }
+    .movie-title {
+        margin-top: 0;   
+    }
+
+    .poster {
+        margin-top: 100px;
+        width: 290px;
+        height: auto;
+    }
+    .container {
+        flex-direction: row;
+    }
+    .overview-text {
+        font-size: 20px;
+    }
+    .empty-div {
+        margin-bottom: 100px;
+    }
+    
+}
+
+@media screen and (max-width: 780px) and (min-height: 1100px) {
+    .overview {
+        height: 400px;
+        margin-top: 0px;
+        
+    }
+    .movie-info {
+        
+        margin-left: 20px;
+        
+    }
+    .movie-title {
+        margin-top: 0;   
+    }
+
+    .poster {
+        width: 200px;
+        height: auto;
+    }
+    .container {
+        flex-direction: row;
+    }
+    .overview-text {
+        font-size: 20px;
+    }
+}

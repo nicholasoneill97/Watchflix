@@ -19,6 +19,9 @@ import { arrayUnion, doc, updateDoc } from 'firebase/firestore'
 
 //import Link for each movie, when clicked brings them to overview page
 import { Link } from 'react-router-dom'
+
+//import empty image placeholder for when image comes back empty
+import emptyImage from '../images/image_coming_soon.png'
  
 
     const Movie = ({item}) => {
@@ -67,11 +70,12 @@ import { Link } from 'react-router-dom'
 
   return (
     <div className='w-[160px] sm:w-[200px] md:w-[240px] lg:w-[280px] inline-block cursor-pointer relative p-2'>
-                  <img className='w-full h-auto block' src={`https://image.tmdb.org/t/p/w500/${item?.backdrop_path}`} alt={item?.title} />
+                  <img className='w-full h-auto block' src={item.backdrop_path === null ? emptyImage : `https://image.tmdb.org/t/p/w500/${item?.backdrop_path}`} alt={item?.title} />
                     <div className='absolute top-0 left-0 w-full h-full hover:bg-black/80 opacity-0 hover:opacity-100 text-white'>
                     <Link key={item} item={item} to={`/overview/${item.id}`}>
                         <div  className='text-[.6rem] md:text-[1rem] font-bold flex flex-col justify-center items-center h-full text-center md:mt-0 mt-2'>
                             {item?.title} 
+                            
                             <div className='flex mt-2'>
                                 <FaStar className='mr-1 mt-[1px] md:mt-0'/>
                                 <div>

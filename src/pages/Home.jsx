@@ -16,12 +16,13 @@ import Footer from '../components/Footer'
 import Loader from '../components/Loader'
 
 
+
+
 //Returns rows corresponding to their specific requests and titles
 
 
 
 const Home = () => {
-
 
 
   return (

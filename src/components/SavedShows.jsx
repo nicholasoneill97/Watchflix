@@ -24,6 +24,9 @@ import { FaStar } from 'react-icons/fa'
 //import link to get to overview of movie
 import { Link } from 'react-router-dom'
 
+//import empty image placeholder for if an image comes back empty
+import emptyImage from '../images/image_coming_soon.png'
+
 const SavedShows = () => {
 
     //initializes movies set to an empty array
@@ -87,7 +90,7 @@ const SavedShows = () => {
         <div id={'slider'} className='w-full h-full overflow-x-scroll whitespace-nowrap scroll-smooth scrollbar-hide relative'>
             {movies.map((item, id) => (
                 <div key={id} className='w-[160px] sm:w-[200px] md:w-[240px] lg:w-[280px] inline-block cursor-pointer relative p-2'>
-                    <img className='w-full h-auto block' src={`https://image.tmdb.org/t/p/w500/${item?.img}`} alt={item?.title} />
+                    <img className='w-full h-auto block' src={item?.img === null ? emptyImage : `https://image.tmdb.org/t/p/w500/${item?.img}`} alt={item?.title} />
                     <div className='absolute top-0 left-0 w-full h-full hover:bg-black/80 opacity-0 hover:opacity-100 text-white'>
                         <Link key={item} item={item} to={`/overview/${item.id}`}>
                         <p className='white-space-normal text-[.6rem] md:text-sm font-bold flex flex-col justify-center items-center md:mt-0 mt-2 h-full text-center'>

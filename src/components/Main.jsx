@@ -1,6 +1,6 @@
 
 //import useEffect for grabbing movie details
-//import useState for movies
+//import useState for grabbing movie and liking movie
 import React, { useEffect, useState } from 'react'
 
 //import requests for specific data for movie rows
@@ -13,7 +13,13 @@ import axios from 'axios'
 import { Link } from 'react-router-dom'
 
 //import star for rating
-import { FaStar } from 'react-icons/fa'
+//import hear icons for liking movie to save to account
+import { FaHeart, FaRegHeart, FaStar } from 'react-icons/fa'
+
+//import updateDoc, UserAuth, db, doc, and arrayUnion for saving movies
+import { arrayUnion, doc, updateDoc } from 'firebase/firestore'
+import { db } from '../firebase'
+import { UserAuth } from '../context/Authcontext'
 
 
 
@@ -25,6 +31,43 @@ const Main = () => {
     //Randomizes movie selection to be on home page
 
     const movie = movies[Math.floor(Math.random() * movies.length)]
+
+
+
+
+    //initializes if the movie is liked to false
+    const [like, setLike] = useState(false)
+
+    //initializes if the movie is saved to false
+    const [saved, setsaved] = useState(false)
+
+    //initializes userAuth to check for user
+    const { user } = UserAuth()
+
+    //declares movieID destination for when heart it clicked
+    const movieID = doc(db, 'users', `${user?.email}`)
+
+    //Saves movie to their account when Heart Icon is clicked and unifies array filled with movies details
+
+     const saveMovie = async () => {
+        if(user?.email) {
+            setLike(!like)
+            setsaved(true)
+            await updateDoc(movieID, {
+                savedShows: arrayUnion (
+                    {id: movie.info.id,
+                     title: movie.info.title,
+                     img: movie.info.backdrop_path
+                     
+
+                     
+                    })
+            })
+        } else {
+            alert ('Please log in to save a movie')
+        }
+    }
+
 
 
     //Grabs popular movies
@@ -54,12 +97,15 @@ const Main = () => {
         </div>
         <img className="w-full h-full object-cover" src={`https://image.tmdb.org/t/p/original/${movie?.backdrop_path}`} alt={movie?.title} />
         <div className='absolute w-full top-[20%] p-4 md:p-8'>
-          <h1 className='text-3xl md:text-5xl font-bold'>
+          <div className='text-3xl md:text-5xl font-bold flex'>
             {movie?.title}
-          </h1>
+            <p onClick={saveMovie}>
+                                {like ? <FaHeart className=' text-gray-300 ml-4 mt-1' /> : <FaRegHeart className=' text-gray-300 hover:text-pink-500 ml-4 mt-1 z-10' />}   
+            </p>
+          </div>
           <div className='my-4'>
             <Link key={movie} to={`/overview/${movie?.id}`}>
-              <button className='border text-black bg-gray-300 border-gray-300 py-2 px-5 rounded hover:bg-black hover:text-white duration-1000'>
+              <button className='border text-black bg-gray-300 border-gray-300 py-2 px-5 rounded hover:bg-slate-800 hover:text-white duration-1000'>
                 More Info
               </button>
             </Link>

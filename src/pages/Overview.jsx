@@ -27,6 +27,13 @@ import { motion } from 'framer-motion';
 //import loader for animation on page load
 import Loader from '../components/Loader';
 
+//import empty image placeholder and empty background in case image comes back empty
+import emptyImage from '../images/overview_image_coming_soon.png'
+import emptyBG from '../images/blank_bg.png'
+
+//import overview styles sheet for responsiveness
+import '../styles/overview.css'
+
 
 
 const Overview = () => {
@@ -62,6 +69,12 @@ const Overview = () => {
         })
     }, [])
 
+
+    //in place to make sure the window always opens up to the top of the page
+    useEffect(() => {
+        window.scrollTo(0, 0)
+      }, [])
+
     
     //Saves movies to their account
 
@@ -95,23 +108,23 @@ const Overview = () => {
             <Loader />
         
             <div className='absolute w-full h-[550px]  bg-gradient-to-b from-black via-transparent to-black '></div>
-            <img className="w-full h-full object-cover brightness-[15%] hidden lg:flex" src={`https://image.tmdb.org/t/p/original/${movie?.backdrop_path}`} alt={movie?.title} />
-            <div className='absolute w-full max-h-full top-[8%] lg:top-[20%] p-4 md:p-8 flex flex-row justify-evenly align-middle gap-6'>
+            <img className="w-full h-full object-cover brightness-[15%] hidden lg:flex" src={movie?.backdrop_path === null ? emptyBG : `https://image.tmdb.org/t/p/original/${movie?.backdrop_path}`} alt={movie?.title} />
+            <div className={movie?.backdrop_path === null ? 'empty-poster overview absolute w-full max-h-full top-[8%] lg:top-[20%] p-4 md:p-8 flex flex-row justify-evenly align-middle gap-6' : 'overview absolute w-full max-h-full top-[8%] lg:top-[20%] p-4 md:p-8 flex flex-row justify-evenly align-middle gap-6'}>
                 <motion.div 
-                    className='flex lg:flex-row flex-col lg:gap-6 gap-2 justify-center h-full'
+                    className='container flex lg:flex-row flex-col lg:gap-6 gap-2 justify-center h-full'
                     initial={{ opacity: 0, scale: 1 }}
                     animate={{ opacity: 1, scale: 1, }}
                     transition={{ duration: 2, delay: 1 }}>
-                    <div className='flex flex-col justify-center gap-4 align-middle'>
-                        <img className="h-[400px] w-[300px] border border-slate-600 relative xl:h-[350px] xl:w-[250px] mx-auto" src={`https://image.tmdb.org/t/p/original/${movie?.poster_path}`} alt={movie?.title} />
+                    <div className={movie?.backdrop_path === null ? 'empty-div image-container flex flex-col justify-center gap-4 align-middle' : 'image-container flex flex-col justify-center gap-4 align-middle'}>
+                        <img className="poster h-[400px] w-[300px] border border-slate-600 relative xl:h-[350px] xl:w-[250px] mx-auto" src={movie?.poster_path === null ? emptyImage : `https://image.tmdb.org/t/p/original/${movie?.poster_path}`} alt={movie?.title} />
                         <a href={`https://www.themoviedb.org/movie/${movie?.id}?language=en-US`} target='_blank'>
-                            <button className='text-white px-4 py-2 border rounded cursor-pointer w-full bg-transparent backdrop-blur-sm font-bold hover:bg-slate-500  hover:border-black transition duration-1000'>
+                            <button className=' text-white px-4 py-2 border-white border rounded cursor-pointer w-full bg-slate-800 backdrop-blur-sm font-bold hover:bg-slate-500  hover:border-slate-300 transition duration-1000'>
                                 Learn More
                             </button>
                         </a>
                     </div>
-                    <div className='mt-0 h-full lg:mt-8'>
-                        <h1 className='text-3xl md:text-5xl font-bold pt-1 text-white flex flex-row'>
+                    <div className='movie-info mt-0 h-full lg:mt-8'>
+                        <h1 className='movie-title text-3xl md:text-5xl font-bold pt-1 text-white flex flex-row'>
                             {movie?.title} 
                             <p onClick={saveMovie}>
                                 {like ? <FaHeart className=' text-gray-300 ml-4 mt-1' /> : <FaRegHeart className=' text-gray-300 hover:text-pink-500 ml-4 mt-1 z-10' />}   
@@ -126,7 +139,7 @@ const Overview = () => {
                         <h1 className=' text-3xl text-left text-white mt-4'>
                             Overview
                         </h1>
-                        <div className='text-left max-w-[400px] text-white mb-4'>
+                        <div className='overview-text text-left max-w-[400px] text-white mb-4'>
                             {movie?.overview}
                         </div>
                     </div>
