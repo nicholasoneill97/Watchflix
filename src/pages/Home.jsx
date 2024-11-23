@@ -27,6 +27,10 @@ const Home = () => {
 
   return (
     <>
+    <head>
+      <meta name="google-site-verification" content="DTkzpW_DfR68obMdaC0QUVtPzr8EEaBDBhCypEqP94A" />
+    </head>
+    <body>
     <Loader />
     <Main />
     <Row rowID='1' title="Upcoming" fetchURL={requests.requestUpcoming} />
@@ -35,7 +39,7 @@ const Home = () => {
     <Row rowID='4' title="Top Rated" fetchURL={requests.requestTopRated} />
     <Row rowID='5' title="Comedy" fetchURL={requests.requestComedy} />
     <Footer />
-    
+    </body>
     </>
   )
 }
